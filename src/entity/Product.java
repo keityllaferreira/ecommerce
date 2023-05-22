@@ -1,3 +1,5 @@
+package entity;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -48,4 +50,6 @@ public class Product { //representa a tabela products do banco de dados
                 ", creationDate=" + creationDate +
                 '}';
     }
+
+
 }
