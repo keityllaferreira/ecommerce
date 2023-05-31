@@ -5,15 +5,15 @@ import java.util.Objects;
 
 public class Product { //representa a tabela products do banco de dados
 
-    int id;
-    int companyId;
-    int codeId;
-    String productName;
-    double value;
-    String productType;
-    String productDescription;
-    String productImage;
-    Date creationDate;
+    private int id;
+    private int companyId;
+    private int codeId;
+    private String productName;
+    private double value;
+    private String productType;
+    private String productDescription;
+    private String productImage;
+    private Date creationDate;
 
     public int getId() {
         return id;
