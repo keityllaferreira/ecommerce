@@ -14,13 +14,14 @@ public class ProductRepositoryImpl implements ProductRepository { //responsavel 
 
     public Product findById(int id){ //busca um produto pelo seu ID
 
+        Product produtoEncontrado = null;
         Product[] produtos = new Product[0];
         for(Product product: produtos){
             if (product.getId() == id){
-
+                produtoEncontrado = product;
             }
         }
-
+        return produtoEncontrado;
     }
 
     public Set<Product> findAll(){
