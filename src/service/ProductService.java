@@ -4,10 +4,13 @@ import entity.Product;
 import repository.ProductRepository;
 
 import java.util.Collections;
+import java.util.Set;
+
+
 
 public class ProductService {
     ProductRepository productRepository;
-
+    Product product;
     public Product findByid(int id) {
 
         if (id <= 0) {
@@ -15,8 +18,8 @@ public class ProductService {
         }
 
         Product produtoLocalizado = null;
-        Product[] produtos = new Product[0]; //a variável produtos é um array.
-        for (Product product : produtos) {
+
+        for (Product product : ) {
             if (product.getId() == id) {
                 produtoLocalizado = product;
                 break;
@@ -30,9 +33,9 @@ public class ProductService {
         return produtoLocalizado;
     }
 
-    public Product findAll(){
+    public Set<Product> findAll(){
 
-        return Collections.unmodifiableSet();
+        return Collections.unmodifiableSet(product);
     }
 
 

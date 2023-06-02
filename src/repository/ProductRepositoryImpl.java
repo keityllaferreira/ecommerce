@@ -15,8 +15,7 @@ public class ProductRepositoryImpl implements ProductRepository { //responsavel 
     public Product findById(int id){ //busca um produto pelo seu ID
 
         Product produtoEncontrado = null;
-        Product[] produtos = new Product[0];
-        for(Product product: produtos){
+        for(Product product: productSet){
             if (product.getId() == id){
                 produtoEncontrado = product;
             }
@@ -25,6 +24,7 @@ public class ProductRepositoryImpl implements ProductRepository { //responsavel 
     }
 
     public Set<Product> findAll(){
+
         return Collections.unmodifiableSet(productSet);
     }
 
@@ -34,11 +34,12 @@ public class ProductRepositoryImpl implements ProductRepository { //responsavel 
     }
 
     public boolean update(Product product, int id){
-        if (product == productSet){
-            else{
+        if (product == productSet) {
+            return true;
+        }else{
                 productSet.add(id);
+                return false;
             }
-        }
     }
 
     public boolean delete(Product product){
