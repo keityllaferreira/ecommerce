@@ -16,10 +16,12 @@ public class Product { //representa a tabela products do banco de dados
     private Date creationDate;
 
     public int getId() {
+
         return id;
     }
 
     public void setId(int id) {
+
         this.id = id;
     }
 

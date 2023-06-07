@@ -2,33 +2,32 @@ package repository;
 
 import entity.Product;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class ProductRepositoryImpl implements ProductRepository { //responsavel por gerenciar as operacoes de CRUD
 
-    private Set<Product> productSet = new HashSet<>();
+    private Set<Integer> productSet = new HashSet<>();
 
 
 
-    public Product findById(int id){ //busca um produto pelo seu ID
+    public Integer findById(int id){ //busca um produto pelo seu ID
 
-        Product produtoEncontrado = null;
-        for(Product product: productSet){
+        Integer produtoEncontrado = null;
+        List<Product> products = new ArrayList<>();
+        for(Product product: products){
             if (product.getId() == id){
-                produtoEncontrado = product;
+                produtoEncontrado = id;
             }
         }
         return produtoEncontrado;
     }
 
-    public Set<Product> findAll(){
+    public Set<Integer> findAll(){
 
         return Collections.unmodifiableSet(productSet);
     }
 
-    public boolean save(Product product){
+    public boolean save(Integer product){
         productSet.add(product);
         return true;
     }
