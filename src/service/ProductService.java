@@ -8,9 +8,14 @@ import java.util.Set;
 
 
 
-public class ProductService {
-    ProductRepository productRepository;
+public class ProductService { //Define métodos que implementam a lógica de negócio da entidade Product.
+    private ProductRepository productRepository; //interface
     Product product;
+
+    public ProductService(ProductRepository productRepository){
+        this.productRepository = productRepository;
+    }
+
     public Product findByid(int id) {
 
         if (id <= 0) {
@@ -19,7 +24,9 @@ public class ProductService {
 
         Product produtoLocalizado = null;
 
-        for (Product product : ) {
+
+        Product[] products = new Product[];
+        for (Product product : products) {
             if (product.getId() == id) {
                 produtoLocalizado = product;
                 break;

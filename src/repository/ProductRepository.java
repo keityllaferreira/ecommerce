@@ -1,4 +1,4 @@
 package repository;
 
-public interface ProductRepository {
+public interface ProductRepository { //
 }
