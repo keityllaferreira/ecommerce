@@ -6,7 +6,7 @@ import java.util.*;
 
 public class ProductRepositoryImpl implements ProductRepository { //responsavel por gerenciar as operacoes de CRUD
 
-    private Set<Integer> productSet = new HashSet<>();
+    private Set<Product> products = new HashSet<>();
 
 
 
@@ -22,27 +22,27 @@ public class ProductRepositoryImpl implements ProductRepository { //responsavel 
         return produtoEncontrado;
     }
 
-    public Set<Integer> findAll(){
+    public Set<Product> findAll(){
 
-        return Collections.unmodifiableSet(productSet);
+        return Collections.unmodifiableSet(products);
     }
 
-    public boolean save(Integer product){
-        productSet.add(product);
+    public boolean save(int product){
+        products.add(product);
         return true;
     }
 
     public boolean update(Product product, int id){
-        if (product == productSet) {
+        if (product == products) {
             return true;
         }else{
-                productSet.add(id);
+                products.add(id);
                 return false;
             }
     }
 
-    public boolean delete(Product product){
-        productSet.remove(product);
+    public boolean delete(int product){
+        products.remove(product);
         return true;
     }
 

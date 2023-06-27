@@ -1,21 +1,23 @@
 package service;
 
 import entity.Product;
-import repository.ProductRepository;
+import repository.ProductRepositoryImpl;
 
 import java.util.*;
 
 
 public class ProductService { //Define métodos que implementam a lógica de negócio da entidade Product.
-    private ProductRepository productRepository; //interface
-    Set<Integer> productSet = new HashSet<Integer>();
+    private ProductRepositoryImpl productRepositoryImpl;
 
-    public ProductService(ProductRepository productRepository){
 
-        this.productRepository = productRepository;
+
+
+    public ProductService(ProductRepositoryImpl productRepositoryImpl){
+
+        this.productRepositoryImpl = productRepositoryImpl;
     }
 
-    public Product findByid(int id) {
+    public Product findByid(int id) { //busca um produto pelo id e realiza as validações necessárias
 
         if (id <= 0) {
             throw new IllegalArgumentException("Digite um id válido.");
@@ -39,27 +41,27 @@ public class ProductService { //Define métodos que implementam a lógica de neg
         return produtoLocalizado;
     }
 
-    public Product findAll(){ //retorna todos os produtos
+    public Product findAll(){ //retorna todos os produtos e realiza as validações necessárias
 
-        return Collections.unmodifiableSet(productSet);
+        return Collections.unmodifiableSet(productRepositoryImpl);
     }
 
-    public Product save(Product product){
-        productSet.add(product.getId());
+    public boolean save(Product product){ //adiciona um produto novo e e realiza as validações necessárias
+        productRepositoryImpl.add(product.getId());
         return true;
     }
 
-    public Product update(Product product, int id){
-        if (product == productSet) {
+    public boolean update(Product product){ //atualiza um produto existente e realiza as validações necessárias
+        if (product == productRepositoryImpl) {
             return true;
         }else{
-            productSet.add(id);
+            productRepositoryImpl.add(id.getId());
             return false;
         }
     }
 
-    public boolean delete(int product){
-        productSet.remove(product);
+    public boolean delete(int product){ //remove um produto e realiza as validações necessárias
+        productRepositoryImpl.delete(product);
         return true;
     }
 
