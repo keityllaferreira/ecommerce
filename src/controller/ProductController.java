@@ -3,6 +3,8 @@ package controller;
 import entity.Product;
 import service.ProductService;
 
+import java.util.Set;
+
 public class ProductController { //possui métodos que controlam o fluxo da aplicação
 
     private ProductService productService;
@@ -12,27 +14,27 @@ public class ProductController { //possui métodos que controlam o fluxo da apli
         this.productService = ProductService;
     }
 
-    public Product getProducts() {
+    public Set<Product> getProducts() { //retona todos os produtos cadastrados na aplicação
 
         return productService.findAll();
     }
 
-    public Product getProductById(int id){
+    public Product getProductById(int id){ //retorna o produto com o id especificado.
 
         return productService.findByid(id);
     }
 
-    public void addProduct(Product product) {
+    public void addProduct(Product product) { //adiciona um novo produto na aplicação
 
         productService.save(product);
     }
 
-    public void updateProduct(Product product) {
+    public void updateProduct(Product product) { //atualiza um produto existente na aplicacao
 
         productService.update(product);
     }
 
-    public void deleteProduct(int id) {
+    public void deleteProduct(int id) { //remove um produto existente na aplicacao
 
         productService.delete(id);
     }

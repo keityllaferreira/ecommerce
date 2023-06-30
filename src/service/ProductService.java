@@ -23,44 +23,43 @@ public class ProductService { //Define métodos que implementam a lógica de neg
             throw new IllegalArgumentException("Digite um id válido.");
         }
 
-        Product produtoLocalizado = null;
-
-
-        List<Product> products = new ArrayList<>();
-        for (Product product : products) {
-            if (product.getId() == id) {
-                produtoLocalizado = product;
-                break;
-            }
-        }
-
-        if (produtoLocalizado == null) {
-            throw new RuntimeException("Produto não localizado.");
-        }
-
-        return produtoLocalizado;
+        return productRepositoryImpl.findById(id);
     }
 
-    public Product findAll(){ //retorna todos os produtos e realiza as validações necessárias
+    public Set<Product> findAll(){ //retorna todos os produtos e realiza as validações necessárias
 
-        return Collections.unmodifiableSet(productRepositoryImpl);
+        if (productRepositoryImpl == null) {
+            throw new IllegalArgumentException("Digite um id válido.");
+        }
+        return productRepositoryImpl.findAll();
     }
 
     public boolean save(Product product){ //adiciona um produto novo e e realiza as validações necessárias
-        productRepositoryImpl.add(product.getId());
+        if (productRepositoryImpl == null) {
+            throw new IllegalArgumentException("Digite um id válido.");
+        }
+        productRepositoryImpl.save(product);
         return true;
     }
 
     public boolean update(Product product){ //atualiza um produto existente e realiza as validações necessárias
-        if (product == productRepositoryImpl) {
-            return true;
-        }else{
-            productRepositoryImpl.add(id.getId());
-            return false;
+        if (product.getId() <= 0) {
+            throw new IllegalArgumentException("Digite um id válido.");
         }
+
+        if (productRepositoryImpl.findById(product.getId()) == null){
+            return false;
+        }else{
+            productRepositoryImpl.update(product);
+            return true;
+        }
+
     }
 
     public boolean delete(int product){ //remove um produto e realiza as validações necessárias
+        if (productRepositoryImpl == null) {
+            throw new IllegalArgumentException("Digite um id válido.");
+        }
         productRepositoryImpl.delete(product);
         return true;
     }

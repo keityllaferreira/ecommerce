@@ -10,38 +10,38 @@ public class ProductRepositoryImpl implements ProductRepository { //responsavel 
 
 
 
-    public Integer findById(int id){ //busca um produto pelo seu ID
+    public Product findById(int id){ //busca um produto pelo seu ID
 
-        Integer produtoEncontrado = null;
-        List<Product> products = new ArrayList<>();
+        Product produtoEncontrado = null;
         for(Product product: products){
-            if (product.getId() == id){
-                produtoEncontrado = id;
-            }
+            if (product.getId() == id)
+                produtoEncontrado = product;
         }
         return produtoEncontrado;
     }
 
-    public Set<Product> findAll(){
+    public Set<Product> findAll(){ //retorna todos os produtos da colecao
 
         return Collections.unmodifiableSet(products);
     }
 
-    public boolean save(int product){
+    public boolean save(Product product){ //adiciona um novo produto na colecao
         products.add(product);
+
+
         return true;
     }
 
-    public boolean update(Product product, int id){
+    public boolean update(Product product){ //atualiza um produto existente na colecao
         if (product == products) {
             return true;
         }else{
-                products.add(id);
+                products.add(product);
                 return false;
             }
     }
 
-    public boolean delete(int product){
+    public boolean delete(int product){ //remove um produto da colecao
         products.remove(product);
         return true;
     }
