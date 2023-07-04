@@ -43,15 +43,14 @@ public class ProductService { //Define métodos que implementam a lógica de neg
     }
 
     public boolean update(Product product){ //atualiza um produto existente e realiza as validações necessárias
-        if (product.getId() <= 0) {
+        if (product.getId() < 0) {
             throw new IllegalArgumentException("Digite um id válido.");
         }
 
         if (productRepositoryImpl.findById(product.getId()) == null){
-            return false;
+            throw new IllegalArgumentException("Digite um id válido.");
         }else{
-            productRepositoryImpl.update(product);
-            return true;
+              return productRepositoryImpl.update(product);
         }
 
     }
