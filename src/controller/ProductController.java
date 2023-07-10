@@ -7,14 +7,17 @@ import java.util.Set;
 
 public class ProductController { //possui métodos que controlam o fluxo da aplicação
 
-    private ProductService productService;
+    private final ProductService productService;
 
     public ProductController (ProductService ProductService){
 
         this.productService = ProductService;
     }
 
-    public Set<Product> getProducts() { //retona todos os produtos cadastrados na aplicação
+    public Set<Product>
+
+
+    getProducts() { //retona todos os produtos cadastrados na aplicação
 
         return productService.findAll();
     }
