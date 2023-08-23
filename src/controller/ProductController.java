@@ -14,7 +14,7 @@ public class ProductController { //possui métodos que controlam o fluxo da apli
         this.productService = ProductService;
     }
 
-    public Set<Product>
+    public Set<Product> //todo: pq esse cara está aqui? ele esta sendo usado? faz parte dessa camada ter esse atributo?
 
 
     getProducts() { //retona todos os produtos cadastrados na aplicação

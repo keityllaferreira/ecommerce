@@ -147,8 +147,8 @@ public class Main {
         int produtoAntigo = scanner.nextInt();
         product = productController.getProductById(produtoAntigo);
 
-        if (product == null) {
-            System.out.println("Este produto não existe. É necessário criar. Opção 3.");
+        if (product == null) {  
+            System.out.println("Este produto não existe. É necessário criar. Opção 3."); // todo legal, gostei disso :) mas faltou  encerrar o metodo  e voltar pro menu, vc chegou a testar isso? nao viu??
         } else {
            System.out.println("Este produto já existe, deseja atualizar? ");
         }

@@ -88,7 +88,7 @@ public class Product { //representa a tabela products do banco de dados
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o) { 
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
